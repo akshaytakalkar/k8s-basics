@@ -25,11 +25,17 @@ source project.env
 kops create cluster --zones ap-south-1a $CLUSTER_NAME
 `
 ### edit the config below to modify the zones and region
-`
+```
 kops edit cluster ${CLUSTER_NAME}  
-
+```
+### To edit the node and master configration use the below command. [Optional]
+```
+kops edit instancegroup  --name $CLUSTER_NAME nodes
+kops edit ig --name=$CLUSTER_NAME master-ap-south-1a
+```
+```
 kops update cluster ${CLUSTER_NAME} --yes
-`
+```
 ### A new cluster with 1 master and 2 nodes will be created
 
 
