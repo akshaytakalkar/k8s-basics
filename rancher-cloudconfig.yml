@@ -1,2 +1,27 @@
 ssh_authorized_keys:
-  - ssh-rsa ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmd739RlKrQWnyTTtaSMb8QTepIerQxOZr6CLwMDx5EPkDJpXyKqhtNqEJQsfZo45NQysiCGM+O+dGlRmjY0b5ngPp0/bT+bC92f+nrzBsc3rKJ/shFdi4GTo08Fj39z5XiDwSkDaj/FnmDP7LxOjDN3vzwUA24m+YV+4Y+5u9C2fLJRSkcXkld4AlX5gTsSEiPP8zNjzyKS9FtEZXopxeyzfi/SvPHJuwyyTC0FMUDhi0wIIlJmNw88a6t97MQv0Mo+XtMSfEhCIuTifYS97/fHx0f7xrcTCWg3s012U7dwTL8O0hHh9kZ6EmOa00c0aoawHKRy56qjiIJiU6n/SF
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmd739RlKrQWnyTTtaSMb8QTepIerQxOZr6CLwMDx5EPkDJpXyKqhtNqEJQsfZo45NQysiCGM+O+dGlRmjY0b5ngPp0/bT+bC92f+nrzBsc3rKJ/shFdi4GTo08Fj39z5XiDwSkDaj/FnmDP7LxOjDN3vzwUA24m+YV+4Y+5u9C2fLJRSkcXkld4AlX5gTsSEiPP8zNjzyKS9FtEZXopxeyzfi/SvPHJuwyyTC0FMUDhi0wIIlJmNw88a6t97MQv0Mo+XtMSfEhCIuTifYS97/fHx0f7xrcTCWg3s012U7dwTL8O0hHh9kZ6EmOa00c0aoawHKRy56qjiIJiU6n/SF
+users:
+  - default
+  - name: barfoo
+    gecos: Bar B. Foo
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin, docker
+    ssh_import_id: None
+    lock_passwd: true
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmd739RlKrQWnyTTtaSMb8QTepIerQxOZr6CLwMDx5EPkDJpXyKqhtNqEJQsfZo45NQysiCGM+O+dGlRmjY0b5ngPp0/bT+bC92f+nrzBsc3rKJ/shFdi4GTo08Fj39z5XiDwSkDaj/FnmDP7LxOjDN3vzwUA24m+YV+4Y+5u9C2fLJRSkcXkld4AlX5gTsSEiPP8zNjzyKS9FtEZXopxeyzfi/SvPHJuwyyTC0FMUDhi0wIIlJmNw88a6t97MQv0Mo+XtMSfEhCIuTifYS97/fHx0f7xrcTCWg3s012U7dwTL8O0hHh9kZ6EmOa00c0aoawHKRy56qjiIJiU6n/SF
+      
+yum_repos:
+  # The name of the repository
+  epel-testing:
+    # Any repository configuration options
+    # See: man yum.conf
+    #
+    # This one is required!
+    baseurl: http://download.fedoraproject.org/pub/epel/testing/5/$basearch
+    enabled: false
+    failovermethod: priority
+    gpgcheck: true
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL
+    name: Extra Packages for Enterprise Linux 5 - Testing    
+package_upgrade: true    
